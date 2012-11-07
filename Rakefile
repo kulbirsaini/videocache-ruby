@@ -23,14 +23,12 @@ namespace :db do
     desc 'One migration up'
     task :up => [ :connect ] do
       step = ENV['STEP'].present? ? ENV['STEP'].to_i : 1
-      puts "#{get_next_version(step)}"
       ActiveRecord::Migrator.up(MIGRATIONS_DIR, get_next_version(step))
     end
 
     desc 'One migration down'
     task :down => [ :connect ] do
       step = ENV['STEP'].present? ? ENV['STEP'].to_i : 1
-      puts "#{get_previous_version(step)}"
       ActiveRecord::Migrator.down(MIGRATIONS_DIR, get_previous_version(step))
     end
 
