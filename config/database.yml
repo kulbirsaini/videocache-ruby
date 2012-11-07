@@ -6,4 +6,4 @@ password: videocache
 database: videocache
 encoding: utf8
 timeout: 5000
-pool: 10
+pool: 100
