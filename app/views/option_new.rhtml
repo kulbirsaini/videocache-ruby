@@ -1,0 +1,14 @@
+New Option<br />
+<form accept-charset="UTF-8" action="/options" method="post">
+  <%= label(:option, :key) %>
+  <%= text_field(:option, :key) %><br />
+  <%= label(:option, :value) %>
+  <%= text_field(:option, :value) %><br />
+  <%= label(:option, :option_type, 'Type') %>
+  <%= select(:option, :option_type, Option.option_types.map{ |k, v| [v, k] }, { :include_blank => 'Select Option Type' }) %><br />
+  <%= label(:option, :description) %>
+  <%= text_area(:option, :description, :size => '20x3') %><br />
+  <%= label(:option, :disabled) %>
+  <%= check_box(:option, :disabled) %><br />
+  <%= submit_tag 'Save' %>
+</form>

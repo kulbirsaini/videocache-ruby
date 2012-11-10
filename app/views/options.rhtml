@@ -1,0 +1,4 @@
+All Options<br />
+<% @options.each do |option| %>
+  <%= link_to(option.key, url("/option/#{option.id}")) %><br />
+<% end %>
