@@ -1,0 +1,32 @@
+development:
+  raise_errors: false
+  dump_errors: false
+  logging: true
+  methodoverride: true
+  static: true
+  run: true
+  port: 4567
+  sessions: true
+  layout: :layout
+
+production:
+  raise_errors: false
+  dump_errors: false
+  logging: true
+  methodoverride: true
+  static: true
+  run: true
+  port: 4567
+  sessions: true
+  layout: :layout
+
+test:
+  dump_errors: false
+  methodoverride: true
+  static: true
+  port: 4567
+  sessions: true
+  layout: :layout
+  raise_errors: true
+  logging: false
+  run: false

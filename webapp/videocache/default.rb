@@ -1,20 +1,18 @@
 require 'rubygems'
 require 'sinatra/base'
+require 'sinatra/config_file'
 require File.expand_path('../../../config/application', __FILE__)
 
 module Videocache
   class Default < Sinatra::Base
-    set :raise_errors, Proc.new{ test? }
-    set :dump_errors, false
-    set :logging, Proc.new{ !test? }
-    set :methodoverride, true
-    set :static, true
-    set :run, Proc.new{ !test? }
-    set :port, 4567
+    register Sinatra::ConfigFile
+    config_file App.root + 'config/webapp.yml'
 
-    set :views, VIEWS_DIR
-    set :sessions, true
-    set :layout => :layout
+    # Set App Wide Env for database connection
+    App.env = environment
+    App.connect()
+
+    set :views, App.views_dir
 
     configure :development do
       require 'sinatra/reloader'

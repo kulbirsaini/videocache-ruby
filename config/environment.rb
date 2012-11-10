@@ -1,8 +1,18 @@
 Bundler.require if defined?(Bundler)
 
-APP_ROOT = Pathname.new(File.dirname(File.expand_path('../', __FILE__)))
-MIGRATIONS_DIR = APP_ROOT + 'db/migrate'
-DB_CONNECTION_INFO = YAML::load(File.open(APP_ROOT + 'config/database.yml'))
-VIEWS_DIR = APP_ROOT + 'app/views'
+class App
+  cattr_reader :root, :connection_info, :connection, :migrations_dir, :views_dir
+  cattr_accessor :env
 
-Dir.glob(APP_ROOT + "app/models/*.rb").each{ |f| require f }
+  @@env = ENV['APP_ENV'].present? && [:development, :test, :production].member?(ENV['APP_ENV'].to_sym) ? ENV['APP_ENV'].to_sym : :development
+  @@root =  Pathname.new(File.dirname(File.expand_path('../', __FILE__)))
+  @@connection_info =  YAML::load(File.open(@@root + 'config/database.yml')).symbolize_keys
+  @@migrations_dir = @@root + 'db/migrate'
+  @@views_dir = @@root + 'app/views'
+
+  def self.connect
+    ActiveRecord::Base.establish_connection(@@connection_info[@@env])
+  end
+end
+
+Dir.glob(App.root + "app/models/*.rb").each{ |f| require f }

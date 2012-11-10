@@ -1,9 +1,21 @@
-host: localhost
-port: 3306
-adapter: mysql2
-username: videocache
-password: videocache
-database: videocache
-encoding: utf8
-timeout: 5000
-pool: 100
+defaults: &defaults
+  host: localhost
+  port: 3306
+  adapter: mysql2
+  username: videocache
+  password: videocache
+  encoding: utf8
+  timeout: 5000
+  pool: 100
+
+development:
+  <<: *defaults
+  database: videocache_dev
+
+production:
+  <<: *defaults
+  database: videocache
+
+test:
+  <<: *defaults
+  database: videocache_test
