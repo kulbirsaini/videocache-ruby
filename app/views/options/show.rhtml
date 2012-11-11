@@ -1,0 +1,4 @@
+Option <%= @option.try(:id) %><br />
+<%= link_to(@option.key, option_path(@option)) %><br />
+<%= link_to('Edit', edit_option_path(@option)) %><br />
+<%= link_to('Destroy', destroy_option_path(@option), :method => :delete, :'data-confirm' => 'Are you sure?') %>

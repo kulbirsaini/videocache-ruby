@@ -1,5 +1,5 @@
-New Option<br />
-<form accept-charset="UTF-8" action="/options" method="post">
+<form accept-charset="UTF-8" action="/options<%= @option.persisted? ? "/#{@option.id}" : '' %>" method="post">
+  <%= hidden_field_tag(:_method, :put) if @option.persisted? %>
   <%= label(:option, :key) %>
   <%= text_field(:option, :key) %><br />
   <%= label(:option, :value) %>
@@ -10,5 +10,5 @@ New Option<br />
   <%= text_area(:option, :description, :size => '20x3') %><br />
   <%= label(:option, :disabled) %>
   <%= check_box(:option, :disabled) %><br />
-  <%= submit_tag 'Save' %>
+  <%= submit_tag "#{@option.persisted? ? 'Update' : 'Create'}" %>
 </form>
