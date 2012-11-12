@@ -1,16 +1,8 @@
 require File.expand_path('../default', __FILE__)
-require 'action_view'
-require File.expand_path('../overrides', __FILE__)
-require File.expand_path('../routes', __FILE__)
 
 module Videocache
   class Application < Default
     use Videocache::Authenticator
-
-    helpers ActionView::Helpers::FormHelper
-    helpers ActionView::Helpers::FormTagHelper
-    helpers ActionView::Helpers::FormOptionsHelper
-    helpers ActionView::Helpers::UrlHelper
 
     before do
       redirect to(login_path) if request.path_info.split(%r|/login|).present? and !authenticated?

@@ -1,7 +1,10 @@
 require 'rubygems'
 require 'sinatra/base'
 require 'sinatra/config_file'
+require 'action_view'
 require File.expand_path('../../../config/application', __FILE__)
+require File.expand_path('../overrides', __FILE__)
+require File.expand_path('../routes', __FILE__)
 
 module Videocache
   class Default < Sinatra::Base
@@ -18,6 +21,11 @@ module Videocache
       require 'sinatra/reloader'
       register Sinatra::Reloader
     end
+
+    helpers ActionView::Helpers::FormHelper
+    helpers ActionView::Helpers::FormTagHelper
+    helpers ActionView::Helpers::FormOptionsHelper
+    helpers ActionView::Helpers::UrlHelper
 
     def authenticated?
       session[:username].present?

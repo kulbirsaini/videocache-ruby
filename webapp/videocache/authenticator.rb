@@ -1,5 +1,4 @@
 require File.expand_path('../default', __FILE__)
-require File.expand_path('../routes', __FILE__)
 
 module Videocache
   class Authenticator < Default
