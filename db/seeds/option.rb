@@ -4,7 +4,7 @@ option_help = Hash.new{ |k, v| v = '' }
 options = [
   { :key => 'client_email', :name => 'Client Email', :help => option_help[:client_email], :value => '', :option_type => 'email', :description => option_desc[:client_email], :default => '' },
   { :key => 'cache_host', :name => 'Cache Host With Port', :help => option_help[:cache_host], :value => '127.0.0.1', :option_type => 'host_with_port', :description => option_desc[:cache_host], :default => '127.0.0.1' },
-  { :key => 'cache_user', :name => 'Cache Proxy User', :help => option_help[:cache_user], :value => 'proxy', :option_type => 'user', :description => option_desc[:cache_user], :default => 'proxy' },
+  { :key => 'cache_user', :name => 'Cache Proxy User', :help => option_help[:cache_user], :value => 'proxy', :option_type => 'username', :description => option_desc[:cache_user], :default => 'proxy' },
   { :key => 'cache_dir', :name => 'Cache Directories', :help => option_help[:cache_dir], :value => '', :option_type => 'array', :description => option_desc[:cache_dir], :default => '' },
   { :key => 'disk_threshold', :name => 'Disk Threshold', :help => option_help[:disk_threshold], :value => '15000', :option_type => 'integer', :description => option_desc[:disk_threshold], :default => '15000' },
   { :key => 'cleanup_policy', :name => 'Cleanup Policy', :help => option_help[:cleanup_policy], :value => '1', :option_type => 'integer', :description => option_desc[:cleanup_policy], :default => '1' },

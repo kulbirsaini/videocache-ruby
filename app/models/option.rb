@@ -5,6 +5,8 @@ class Option < ActiveRecord::Base
       :number => 'Number',
       :range => 'Range',
       :string => 'String',
+      :username => 'Username',
+      :array => 'Array',
       :boolean => 'Boolean',
       :email => 'Email',
       :hostname => 'Hostname',

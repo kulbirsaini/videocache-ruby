@@ -1,4 +1,30 @@
 All Options<br />
-<% @options.each do |option| %>
-  <%= link_to(option.key, option_path(option)) %><br />
-<% end %>
+<style type="text/css">
+  th, td { text-align: center; padding: 2px 5px; }
+</style>
+<table cellpadding='1'>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+      <th>Disabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @options.each do |option| %>
+      <tr>
+        <td><%= option.key %></td>
+        <td><%= link_to(option.name, option_path(option)) %></td>
+        <td><%= option.value %></td>
+        <td><%= Option.option_types[option.option_type.to_sym] %></td>
+        <td><%= option.description %></td>
+        <td><%= option.default %></td>
+        <td><%= option.disabled %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

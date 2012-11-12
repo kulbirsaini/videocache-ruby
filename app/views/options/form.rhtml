@@ -2,6 +2,8 @@
   <%= hidden_field_tag(:_method, :put) if @option.persisted? %>
   <%= label(:option, :key) %>
   <%= text_field(:option, :key) %><br />
+  <%= label(:option, :name) %>
+  <%= text_field(:option, :name) %><br />
   <%= label(:option, :value) %>
   <%= text_field(:option, :value) %><br />
   <%= label(:option, :option_type, 'Type') %>
