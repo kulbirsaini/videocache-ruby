@@ -13,10 +13,16 @@ namespace :db do
     ActiveRecord::Base.establish_connection(App.connection_info[App.env])
   end
 
+  desc 'Seed database'
+  task :seed => [ :connect ] do
+    require App.root + 'db/seed'
+  end
+
   desc 'Migrate database'
   task :migrate => [ :connect ] do
     version = ENV['VERSION'].present? ? ENV['VERSION'].to_i : nil
     ActiveRecord::Migrator.migrate(App.migrations_dir, version)
+    Rake::Task[:'db:seed'].invoke
   end
 
   namespace :migrate do
