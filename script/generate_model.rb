@@ -4,18 +4,17 @@
 # Product Website : http://cachevideos.com/
 #
 
-require File.expand_path('../../config/boot', __FILE__)
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../../config/application', __FILE__)
 
 def generate_migration(options = {})
   raise "No model name specified. Example: script/create_migration create_migration_name [fields]" if options[:model].blank?
 
   migration_name = 'Create' + options[:model].camelize.pluralize
   table_name = options[:model].tableize
-  migration = ActiveRecord::Migrator.migrations(MIGRATIONS_DIR).select{ |m| m.name == migration_name }.first
-  raise "Migration already exists at #{APP_ROOT + migration.filename}" if migration
+  migration = ActiveRecord::Migrator.migrations(App.migrations_dir).select{ |m| m.name == migration_name }.first
+  raise "Migration already exists at #{App.root + migration.filename}" if migration
 
-  filepath = APP_ROOT + MIGRATIONS_DIR + (Time.now.utc.strftime('%Y%m%d%H%M%S') + '_create_' + table_name + '.rb')
+  filepath = App.root + App.migrations_dir + (Time.now.utc.strftime('%Y%m%d%H%M%S') + '_create_' + table_name + '.rb')
   puts "Generating migration file #{filepath}"
 
   File.open(filepath, 'w') do |file|
@@ -37,12 +36,17 @@ end
 
 def generate_model(options = {})
   raise "No model name specified. Example: script/create_migration create_migration_name [fields]" if options[:model].blank?
-  filepath = APP_ROOT + 'app/models' + (options[:model].downcase.singularize + '.rb')
+  filepath = App.root + 'app/models' + (options[:model].downcase.singularize + '.rb')
 
   puts "Generating model #{filepath}"
 
   File.open(filepath, 'w') do |file|
     file.write <<-MODEL.strip_heredoc
+      #
+      # (C) Copyright White Magnet Software Private Limited
+      # Company Website : http://whitemagnet.com/
+      # Product Website : http://cachevideos.com/
+      #
       class #{options[:model].camelize} < ActiveRecord::Base
       end
     MODEL
