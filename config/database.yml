@@ -10,7 +10,7 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: videocache_dev
+  database: cache
 
 production:
   <<: *defaults
