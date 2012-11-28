@@ -1,3 +1,8 @@
+#
+# (C) Copyright White Magnet Software Private Limited
+# Company Website : http://whitemagnet.com/
+# Product Website : http://cachevideos.com/
+#
 Bundler.require if defined?(Bundler)
 
 class App
@@ -11,7 +16,8 @@ class App
   @@views_dir = @@root + 'app/views'
 
   def self.connect
-    ActiveRecord::Base.establish_connection(@@connection_info[@@env])
+    return if @connected
+    @connected = ActiveRecord::Base.establish_connection(@@connection_info[@@env])
   end
 end
 

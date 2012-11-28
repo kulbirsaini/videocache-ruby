@@ -1,3 +1,8 @@
+#
+# (C) Copyright White Magnet Software Private Limited
+# Company Website : http://whitemagnet.com/
+# Product Website : http://cachevideos.com/
+#
 require File.expand_path('../config/boot', __FILE__)
 require File.expand_path('../config/environment', __FILE__)
 

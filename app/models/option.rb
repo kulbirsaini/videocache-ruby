@@ -1,3 +1,8 @@
+#
+# (C) Copyright White Magnet Software Private Limited
+# Company Website : http://whitemagnet.com/
+# Product Website : http://cachevideos.com/
+#
 class Option < ActiveRecord::Base
   def self.option_types
     {
