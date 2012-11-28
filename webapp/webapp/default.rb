@@ -11,7 +11,7 @@ require File.expand_path('../../../config/application', __FILE__)
 require File.expand_path('../overrides', __FILE__)
 require File.expand_path('../routes', __FILE__)
 
-module Videocache
+module WebApp
   class Default < Sinatra::Base
     register Sinatra::ConfigFile
     config_file App.root + 'config/webapp.yml'

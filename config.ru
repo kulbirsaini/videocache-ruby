@@ -3,10 +3,10 @@
 # Company Website : http://whitemagnet.com/
 # Product Website : http://cachevideos.com/
 #
-require File.expand_path('../webapp/videocache', __FILE__)
+require File.expand_path('../webapp/webapp', __FILE__)
 
 def app
-  Videocache::WebApp
+  WebApp::Application
 end
 
-run Videocache::WebApp
+run WebApp::Application

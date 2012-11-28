@@ -5,7 +5,7 @@
 #
 require File.expand_path('../default', __FILE__)
 
-module Videocache
+module WebApp
   class Authenticator < Default
     before '/login' do
       redirect to(root_path) if authenticated?

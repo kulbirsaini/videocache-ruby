@@ -7,14 +7,21 @@
 require File.expand_path('../config/application', __FILE__)
 
 module Videocache
-  class UrlRedirector
+  class UrlRewriter
     def initialize
       @supported_methods = [ 'GET' ]
+      ::App.connect
     end
 
     def write_back(request_id = nil, url = '')
       STDOUT.write "#{request_id} #{url}".squish + "\n"
       STDOUT.flush
+      true
+    end
+
+    def error(msg = '')
+      STDERR.write "#{msg}" + "\n"
+      STDERR.flush
       true
     end
 
@@ -28,14 +35,9 @@ module Videocache
 
       url, client_ip_fqdn, user, method = values
       client_ip, fqdn = client_ip_fqdn.split('/')
-      error([request_id, url.first(60), client_ip, fqdn, user, method.upcase])
+      error([request_id, url.first(60), client_ip, fqdn, user, method.upcase]) #FIXME remove this
+      return false, request_id if url.blank?
       return true, request_id, url, client_ip, fqdn, user, method.upcase
-    end
-
-    def error(msg = '')
-      STDERR.write "#{msg}" + "\n"
-      STDERR.flush
-      true
     end
 
     def run!
@@ -53,4 +55,4 @@ module Videocache
   end
 end
 
-Videocache::UrlRedirector.new.run! if __FILE__ == $0
+Videocache::UrlRewriter.new.run! if __FILE__ == $0

@@ -5,9 +5,9 @@
 #
 require File.expand_path('../default', __FILE__)
 
-module Videocache
-  class WebApp < Default
-    use Videocache::Authenticator
+module WebApp
+  class Application < Default
+    use WebApp::Authenticator
 
     before do
       redirect to(login_path) if request.path_info.split(%r|/login|).present? and !authenticated?
