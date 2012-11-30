@@ -3,5 +3,5 @@
 # Company Website : http://whitemagnet.com/
 # Product Website : http://cachevideos.com/
 #
-class Website < ActiveRecord::Base
+class Domain < ActiveRecord::Base
 end

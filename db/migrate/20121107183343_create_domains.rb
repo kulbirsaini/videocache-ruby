@@ -1,6 +1,6 @@
-class CreateWebsites < ActiveRecord::Migration
+class CreateDomains < ActiveRecord::Migration
   def up
-    create_table :websites do |t|
+    create_table :domains do |t|
       t.string :key, :null => false
       t.string :name, :null => false
       t.string :url, :null => false, :default => ''
@@ -10,6 +10,6 @@ class CreateWebsites < ActiveRecord::Migration
   end
 
   def down
-    drop_table :websites
+    drop_table :domains
   end
 end

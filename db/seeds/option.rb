@@ -35,8 +35,8 @@ options = [
   { :key => 'min_youtube_views', :name => 'Minimum YouTube Video Views', :help => option_help[:min_youtube_views], :value => '100', :option_type => 'integer', :description => option_desc[:min_youtube_views], :default => '100' },
   { :key => 'max_youtube_quality', :name => 'Maximum YouTube Video Qaulity Cached', :help => option_help[:max_youtube_quality], :value => '720p', :option_type => 'string', :description => option_desc[:max_youtube_quality], :default => '720p' },
 ]
-Website.all.each do |website|
-  options << { :key => "enable_#{website.key}_cache", :name => "Enable #{website.name} Caching", :help => option_help[:"enable_#{website.key}_cache"], :value => 'true', :option_type => 'boolean', :description => option_desc[:"enable_#{website.key}_cache"], :default => 'true' }
+Domain.all.each do |domain|
+  options << { :key => "enable_#{domain.key}_cache", :name => "Enable #{domain.name} Caching", :help => option_help[:"enable_#{domain.key}_cache"], :value => 'true', :option_type => 'boolean', :description => option_desc[:"enable_#{domain.key}_cache"], :default => 'true' }
 end
 Option.destroy_all
 Option.create(options)

@@ -1,7 +1,7 @@
 class CreateVideos < ActiveRecord::Migration
   def up
     create_table :videos do |t|
-      t.integer :website_id, :null => false
+      t.integer :domain_id, :null => false
       t.string :video_id, :null => false
       t.string :alternate_id, :null => false, :default => ''
       t.integer :start_time

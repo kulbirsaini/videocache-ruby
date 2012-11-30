@@ -1,6 +1,6 @@
-# Website seed file
-website_desc = {}
-websites = [
+# Domain seed file
+domain_desc = {}
+domains = [
   { :key => :youtube, :name => 'YouTube', :url => 'http://www.youtube.com/' },
   { :key => :aol, :name => 'AOL', :url => 'http://www.aol.com/' },
   { :key => :bing, :name => 'Bing', :url => 'http://www.bing.com/videos/browse' },
@@ -28,5 +28,5 @@ websites = [
   { :key => :xvideos, :name => 'X Videos', :url => 'http://www.xvideos.com/' },
   { :key => :youporn, :name => 'You Porn', :url => 'http://www.youporn.com/' },
 ]
-Website.destroy_all
-Website.create(websites)
+Domain.destroy_all
+Domain.create(domains)
