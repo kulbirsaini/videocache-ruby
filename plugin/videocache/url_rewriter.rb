@@ -33,7 +33,7 @@ module Videocache
 
       url, client_ip_fqdn, user, method = values
       client_ip, fqdn = client_ip_fqdn.split('/')
-      error([request_id, url.first(60), client_ip, fqdn, user, method.upcase]) #FIXME remove this
+      error([request_id, url, client_ip, fqdn, user, method.upcase]) #FIXME remove this
       return false, request_id if url.blank?
       return true, request_id, url, client_ip, fqdn, user, method.upcase
     end
@@ -41,7 +41,7 @@ module Videocache
     def run!
       ARGF.each_line do |input|
         valid, request_id, url, client_ip, fqdn, user, method = parse_input(input)
-        write_back(request_id) and error('invalid') and next unless valid and @supported_methods.include?(method)
+        write_back(request_id) and error('invalid ' + input) and next unless valid and @supported_methods.include?(method)
 
         if input =~ /.co.in/
           write_back request_id, "302:http://ibnlive.in.com/"

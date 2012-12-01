@@ -5,6 +5,7 @@
 #
 
 module CommonWebsiteFunctions
+  attr_reader :url, :website_id, :scheme, :host, :path, :query
   module ClassMethods
     def domain
       Domain.where(:key => self.name.demodulize.downcase).first
@@ -16,6 +17,10 @@ module CommonWebsiteFunctions
   end
 
   def domain
-    self.class.domain
+    @domain ||= self.class.domain
+  end
+
+  def valid_scheme?
+    @valid_scheme ||= @scheme.downcase == 'http'
   end
 end
