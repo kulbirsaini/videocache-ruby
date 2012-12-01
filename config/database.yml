@@ -10,12 +10,12 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: cache
+  database: cache_dev
 
 production:
   <<: *defaults
-  database: videocache
+  database: cache_prod
 
 test:
   <<: *defaults
-  database: videocache_test
+  database: cache_test
