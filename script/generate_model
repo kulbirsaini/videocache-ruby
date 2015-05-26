@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 #
-# (C) Copyright White Magnet Software Private Limited
-# Company Website : http://whitemagnet.com/
+# (C) Copyright Kulbir Saini <saini@saini.co.in>
 # Product Website : http://cachevideos.com/
 #
 
@@ -44,8 +43,7 @@ def generate_model(options = {})
   File.open(filepath, 'w') do |file|
     file.write <<-MODEL.strip_heredoc
       #
-      # (C) Copyright White Magnet Software Private Limited
-      # Company Website : http://whitemagnet.com/
+      # (C) Copyright Kulbir Saini <saini@saini.co.in>
       # Product Website : http://cachevideos.com/
       #
       class #{options[:model].camelize} < ActiveRecord::Base

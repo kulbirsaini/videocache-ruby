@@ -1,6 +1,5 @@
 #
-# (C) Copyright White Magnet Software Private Limited
-# Company Website : http://whitemagnet.com/
+# (C) Copyright Kulbir Saini <saini@saini.co.in>
 # Product Website : http://cachevideos.com/
 #
 require File.expand_path('../webapp/webapp', __FILE__)
