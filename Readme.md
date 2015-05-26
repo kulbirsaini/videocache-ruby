@@ -6,7 +6,7 @@ Videocache-Ruby was an attempt to write [Videocache](https://github.com/kulbirsa
 
 * [Videocache](https://github.com/kulbirsaini/videocache)
 * [VCSIDB](https://github.com/kulbirsaini/vcsidb)
-* [DocVc](https://github.com/kulbirsaini/docvc)
+* [DocVC](https://github.com/kulbirsaini/docvc)
 
 ## About Me
 
